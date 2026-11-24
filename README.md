@@ -1,6 +1,6 @@
 # HalfSelect
 
-A client mod for **Planetary Annihilation: TITANS** that adds one hotkey: keep half of the units you have selected.
+A client mod for **Planetary Annihilation: TITANS** that adds two selection hotkeys: keep half of the units you have selected, or keep only the idle ones.
 
 Select 10 units, press **Ctrl+H**, and 5 stay selected. Press it again for 2, and so on. Useful for splitting an army without re-dragging boxes.
 
