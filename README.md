@@ -6,6 +6,8 @@ Select 10 units, press **Ctrl+H**, and 5 stay selected. Press it again for 2, an
 
 The unit-type mix is preserved: from 7 tanks and 3 artillery you keep 4 tanks and 1 artillery, not 5 tanks.
 
+**Ctrl+Alt+H** keeps only the idle units of your selection: those with no orders queued. Handy for grabbing the fabbers that finished their jobs out of a big group, or the units that stopped after a move. If none of them is idle, the selection stays as it was.
+
 ## Install
 
 1. Download `HalfSelect-x.y.z.zip` from the [latest release](https://github.com/Predator455/HalfSelect/releases/latest).
@@ -61,7 +63,7 @@ If `modinfo.json` ends up one level deeper (for example `client_mods/HalfSelect-
 
 ## Rebinding
 
-The hotkey appears in **Settings → Keyboard → units → HalfSelect** as "keep half of selection".
+Both hotkeys appear in **Settings → Keyboard → units → HalfSelect**, as "keep half of selection" and "keep only idle units of selection".
 
 ## How it picks
 

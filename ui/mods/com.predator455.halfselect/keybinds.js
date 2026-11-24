@@ -8,4 +8,5 @@
         display_sub_group: 'HalfSelect'
     };
     settings.halfselect_select_half = _.assign({ title: 'keep half of selection', default: 'ctrl+h' }, common);
+    settings.halfselect_select_idle = _.assign({ title: 'keep only idle units of selection', default: 'ctrl+alt+h' }, common);
 })();

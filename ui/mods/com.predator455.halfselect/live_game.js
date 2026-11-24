@@ -1,5 +1,6 @@
 // HalfSelect — live_game scene.
 // halfselect_select_half: keep half of the current selection, preserving the unit-type mix.
+// halfselect_select_idle: keep only the selected units that have no orders queued.
 (function () {
     var TAG = '[HALFSELECT] ';
 
@@ -30,8 +31,35 @@
             api.select.unitsById(keep);
     }
 
+    /**
+     * Keeps the ids whose unit state reports an empty order queue.
+     * @param {number[]} ids unit ids, in the same order as states
+     * @param {Array<Object|null>} states result of worldview.getUnitState(ids)
+     * @returns {number[]}
+     */
+    function pickIdle(ids, states) {
+        return _.filter(ids, function (id, i) {
+            var state = states[i];
+            return state && state.unit_spec && _.isEmpty(state.orders);
+        });
+    }
+
+    function selectIdle() {
+        var sel = model.selection();
+        if (!sel || !sel.spec_ids)
+            return;
+        var ids = _.flatten(_.values(sel.spec_ids));
+        api.getWorldView(0).getUnitState(ids).then(function (states) {
+            var keep = pickIdle(ids, _.isArray(states) ? states : [states]);
+            // No idle unit: leave the selection alone rather than emptying it.
+            if (keep.length)
+                api.select.unitsById(keep);
+        });
+    }
+
     function registerActions() {
         action_sets.gameplay.halfselect_select_half = selectHalf;
+        action_sets.gameplay.halfselect_select_idle = selectIdle;
         // input_maps was built before this mod loaded; rebuild it and re-bind Mousetrap.
         globalHandlers['inputmap.reload']();
         active_maps.valueHasMutated();
