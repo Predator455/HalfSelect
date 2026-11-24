@@ -1,0 +1,18 @@
+{
+  "identifier": "com.predator455.halfselect",
+  "context": "client",
+  "display_name": "HalfSelect",
+  "description": "Press Ctrl+H to keep half of the current selection, preserving the unit-type mix. Rebindable in Settings > Keyboard.",
+  "author": "Predator455",
+  "version": "1.0.0",
+  "build": "124731",
+  "date": "2026-11-24",
+  "category": ["titans", "ui", "hotkeys"],
+  "priority": 100,
+  "signature": " ",
+  "github": "https://github.com/Predator455/HalfSelect",
+  "scenes": {
+    "global_mod_list": ["coui://ui/mods/com.predator455.halfselect/keybinds.js"],
+    "live_game": ["coui://ui/mods/com.predator455.halfselect/live_game.js"]
+  }
+}
